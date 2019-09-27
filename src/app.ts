@@ -1,18 +1,32 @@
 import * as Phaser from 'phaser';
 
 const config: Phaser.Types.Core.GameConfig = {
+    type: Phaser.AUTO,
     title: "Phaser 3 Typescript/Webpack Template",
     width: 800,
     height: 600,
-    parent: "game"
+    scene: {
+        preload: preload,
+        create: create,
+        update: update
+    }
 };
 
-export class Game extends Phaser.Game {
-  constructor(config: Phaser.Types.Core.GameConfig) {
-    super(config);
-  }
+function preload ()
+{
+    console.log('preload');
+}
+
+function create ()
+{
+    console.log('create');
+}
+
+function update ()
+{
+    //console.log('update');
 }
 
 window.onload = () => {
-  var game = new Game(config);
+  let game = new Phaser.Game(config);
 };
